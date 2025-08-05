@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 1: Introduction to Physical Chemistry</title>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #e8e8e8;
+            background-color: #1a1a1a;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        /* Navigation bar (optional - remove if not needed) */
+        .top-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .top-nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            color: #fff;
+        }
+
+        /* Page title styling */
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        /* Section headers with orange background */
+        .section-header {
+            background-color: #cc6600;
+            color: white;
+            padding: 12px 20px;
+            margin: 30px 0 20px 0;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .method-header {
+            background-color: #cc6600;
+            color: white;
+            padding: 8px 16px;
+            margin: 25px 0 15px 0;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* Content styling */
+        .content {
+            line-height: 1.7;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #e8e8e8;
+        }
+
+        /* Math styling */
+        .math-display {
+            text-align: center;
+            margin: 25px 0;
+            padding: 20px;
+            background-color: transparent;
+        }
+
+        /* Inline math */
+        .MathJax {
+            color: #e8e8e8 !important;
+        }
+
+        /* Custom math formatting for complex expressions */
+        .math-block {
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Times New Roman', serif;
+            font-size: 18px;
+        }
+
+        /* Stepped math derivations */
+        .math-steps {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+
+        .math-steps .step {
+            margin: 8px 0;
+            text-align: center;
+        }
+
+        /* Lists */
+        ol {
+            margin: 15px 0 15px 30px;
+            color: #e8e8e8;
+        }
+
+        ol li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        /* Emphasized text */
+        em {
+            font-style: italic;
+            color: #f0f0f0;
+        }
+
+        strong {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Definition boxes and content blocks */
+        .definition-box {
+            background-color: #1a1a1a;
+            border-left: 4px solid #068A0D;
+            margin: 25px 0;
+            border-radius: 0px;
+            overflow: hidden;
+            padding: 0 0 0 10px;
+        }
+
+        .definition-header {
+  background-color: #068A0D;
+  color: white;
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 6px; /* this makes the header rounded */
+  margin: 10px 0;
+}
+
+        .definition-content {
+            padding: 10px 10px 10px 0;
+            margin-top: 8px;
+            color: #e8e8e8;
+            line-height: 1.7;
+        }
+
+        .theorem-box {
+            background-color: #1a1a1a;
+            border-left: 4px solid #007FC1;
+            margin: 25px 0;
+            border-radius: 0px;
+            overflow: hidden;
+            padding: 0 0 0 10px
+        }
+
+        .theorem-header {
+            background-color: #007FC1;
+            color: white;
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 6px; /* this makes the header rounded */
+  margin: 10px 0;
+        }
+
+        .theorem-content {
+            padding: 20px 20px 20px 0;
+            margin-top: 8px;
+            color: #e8e8e8;
+            line-height: 1.7;
+        }
+
+        .example-box {
+            background-color: #1a1a1a;
+            border-left: 4px solid #723e98;
+           margin: 25px 0;
+            border-radius: 0px;
+            overflow: hidden;
+            padding: 0 0 0 10px
+        }
+
+        .example-header {
+            background-color: #723e98;
+            color: ##e8e8e8;
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 6px; /* this makes the header rounded */
+  margin: 10px 0;
+        }
+
+        .proof-content {
+            padding: 20px 20px 20px 0;
+            margin-top: 8px;
+            color: #e8e8e8;
+            line-height: 1.7;
+        }
+  .proof-box {
+            background-color: #1a1a1a;
+            border-left: 4px solid #c87438;
+           margin: 25px 0;
+            border-radius: 0px;
+            overflow: hidden;
+            padding: 0 0 0 10px
+        }
+
+        .proof-header {
+            background-color: #c87438;
+            color: #e8e8e8;
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 6px; /* this makes the header rounded */
+  margin: 10px 0;
+        }
+
+        .proof-content {
+            padding: 20px 20px 20px 0;
+            margin-top: 8px;
+            color: #e8e8e8;
+            line-height: 1.7;
+        }
+        .warning-box {
+            background-color: #1a1a1a;
+            border-left: 4px solid #FF5252;
+            margin: 25px 0;
+            border-radius: 4px;
+            overflow: hidden;
+            padding: 0 0 0 24px;
+        }
+
+        .warning-header {
+            background-color: #FF5252;
+            color: white;
+            padding: 8px 16px;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-block;
+            border-radius: 4px;
+            margin: 0;
+        }
+
+        .warning-content {
+            padding: 20px 20px 20px 0;
+            margin-top: 8px;
+            color: #e8e8e8;
+            line-height: 1.7;
+        }
+
+        /* Code/formula styling */
+        code {
+            background-color: #2a2a2a;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #f8f8f2;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .top-nav {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .math-steps {
+                padding-left: 20px;
+            }
+        }
+
+        /* MathJax styling overrides */
+        .MathJax_Display {
+            color: #e8e8e8 !important;
+        }
+
+        mjx-container {
+            color: #e8e8e8 !important;
+        }
+
+        mjx-math {
+            color: #e8e8e8 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- OPTIONAL: Navigation bar - remove if not needed -->
+       
+        <!-- Page Title -->
+        <div class="page-title">
+            <h1>Section 1: Introduction to Physical Chemistry</h1>
+        </div>
+
+        <div class="content">
+            
+            <!-- START ADDING YOUR CONTENT HERE -->
+            
+            <p>
+                So far in chemistry, you have been exposed to topics such as General Chemistry, where you learned the basics of chemistry. You have taken courses in Organic Chemistry, where you understood how reactions occur and dealt with complicated mechanisms. Some of you might have talked about Biochemistry—this is where chemistry and biology meet. However, we’re still missing a key branch of chemistry, and quite frankly, a very important one: Physical Chemistry. These notes aim to help explain the amazing subject of Physical Chemistry.
+            </p>
+
+            <p>
+               We are going to start our Physical Chemistry tour with Thermodynamics. You might have had some exposure to this in General Chemistry and other chemistry courses. For the next few lecture notes we are going to spend time talking about this subfield. But first I want to touch on what is Physical chemistry. Physical Chemistry is a field that includes Thermodynamics, Statistical Mechanics, and Quantum Chemistry. These areas of study look at systems at smaller and smaller length scales. 
+            </p>
+
+            <p>
+                Thermodynamics is the oldest part of physical chemistry. It focuses on macroscopic properties and deals with large quantities of molecules, often many Avogadro's numbers worth. It is a phenomenological field, meaning it does not use a microscopic picture at the molecular level. Thermodynamics establishes relationships between quantities, such as the ideal gas law: $$ PV = nRT $$  It discusses the relative values of quantities rather than their absolute values. This course specifically studies equilibrium thermodynamics, where systems are in a state of equilibrium and time is not a variable.
+            </p>
+
+            <div class="definition-box">
+                <div class="definition-header">Definition: Thermodynamic Systems </div>
+                <div class="definition-content">
+                  A <strong>thermodynamic system</strong> is a defined part of the universe being studied. The area outside the system is called the surroundings. A boundary separates the system from its surroundings. Energy (heat, work) and matter (molecules) can be transferred between the system and the surroundings.
+                </div>
+            </div>
+<p> 
+    Here is a list of a few kinds of systems that we deal with in Thermodynamics: 
+    <ul>
+  <li>
+    <strong>Isolated system:</strong> No transfer of energy or matter.
+  </li>
+  <li>
+    <strong>Closed system:</strong> Transfer of energy but no transfer of matter.
+  </li>
+  <li>
+    <strong>Open system:</strong> Transfer of both energy and matter. Examples include the universe, planets, and the human body.
+  </li>
+</ul>
+</p>
+
+<p>
+    Systems can also be described as homogeneous or heterogeneous. A homogeneous system, like water, has a uniform composition. A heterogeneous system, like a mixture of water and ice, has multiple phases. 
+</p>
+<h2 style="text-align: center; font-size: 1.3em; margin: 40px 0 30px 0; color: #fff;">Key Concepts and Laws</h2>
+<p>
+    <ul>
+  <li>
+    <strong>State Variables:</strong> The state of a system is defined macroscopically by state variables like temperature (<i>T</i>), pressure (<i>P</i>), volume (<i>V</i>), and the number of moles (<i>n</i>).
+  </li>
+  <li>
+    <strong>Extensive vs. Intensive Variables:</strong>
+    <ul>
+      <li>
+        <strong>Extensive variables</strong> change with the mass or size of the system. Examples include volume (<i>V</i>), mass (<i>m</i>), internal energy (<i>U</i>), and entropy (<i>S</i>).
+      </li>
+      <li>
+        <strong>Intensive variables</strong> do not change with the mass or size of the system. Examples include pressure (<i>P</i>), density (<i>ρ</i>), and temperature (<i>T</i>).
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</p>
+ <div class="theorem-box">
+                <div class="theorem-header">Law: The Zeroth Law of Thermodynamics </div>
+                <div class="theorem-content">
+                  If two closed systems with fixed volumes are brought into thermal contact, they will eventually reach <strong>thermal equilibrium</strong>. The law states that if system A is in thermal equilibrium with system B, and system B is in thermal equilibrium with system C, then A is in thermal equilibrium with C. This is the principle behind how thermometers measure temperature.
+
+                </div>
+            </div>
+
+<h2 style="text-align: center; font-size: 1.3em; margin: 40px 0 30px 0; color: #fff;">Independent Variables</h2>
+<p>
+    For a closed, homogeneous, one-component system, two independent variables are needed to define the state of the system. For a fluid (liquid or gas), V, P, and T are related by a law, so knowing two of these variables allows you to determine the third. 
+</p>
+
+<p>
+    If T is constant (isotherm), the product $$PV$$ is constant
+    
+</p>
+
+<p>
+    If V is fixed (isochoric), the ratio  $$\frac{P}{T}$$ is constant
+</p>
+  
+<p>
+    If P is fixed (isobaric), the ratio $$\frac{V}{T}$$ is constant (Gay-Lussac's law).
+</p>
+
+<p>For an ideal gas, the overall law is $$PV/T = \text{constant}$$, which leads to the ideal gas equation of state:</p>
+<p>$PV = nRT$</p>
+<p>where R is the gas constant: $$R = 8.31451 J K^{-1}mol^{-1}$$, and the molar volume is $$\overline{V} = \frac{V}{n}$$.</p>
+
+<h2 style="text-align: center; font-size: 1.3em; margin: 40px 0 30px 0; color: #fff;">Ideal Gas Mixtures: Dalton’s Law</h2>
+
+ <div class="theorem-box">
+                <div class="theorem-header">Law: Dalton's Law </div>
+                <div class="theorem-content">
+                 For a mixture of ideal gases, the total number of moles is the sum of the moles of each component: $$n = n_{1}+n_{2}+...+n_{N}$$.</p>
+<p>Dalton's Law states that the total pressure is the sum of the partial pressures of each species:</p>
+<p class="math-display">$$P = P_{1}+P_{2}+...+P_{N}$$</p>
+<p>where the partial pressure of species $$i$$ is $$P_{i} = n_{i}RT/V$$. The partial pressure can also be expressed in terms of the mole fraction $$y_{i}$$:</p>
+<p class="math-display">$$P_{i} = y_{i}P$$</p>
+<p>where the mole fraction is $$y_{i} = n_{i}/n$$, and the sum of all mole fractions is 1.</p>
+
+                </div>
+            </div>
+
+<h2 style="text-align: center; font-size: 1.3em; margin: 40px 0 30px 0; color: #fff;">Real Gases</h2>
+<p>Real gases behave ideally only at low pressure and high temperature. The <strong>compressibility factor</strong>, $$Z=PV/(nRT)$$, is used to measure the deviation from ideal behavior. For an ideal gas, $$Z=1$$.</p>
+<ul>
+  <li>At high pressure, $$V$$ is larger than for an ideal gas because molecules have a finite size.</li>
+  <li>At low pressure, $$V$$ is smaller than for an ideal gas because attractive interactions between molecules cause them to pack together more closely.</li>
+</ul>
+<p>The compressibility factor $$Z$$ is also temperature-dependent.</p>
+<h2 style="text-align: center; font-size: 1.3em; margin: 40px 0 30px 0; color: #fff;">The Van der Waals Equation</h2>
+<p>The ideal gas law assumes point particles with no volume and no interactions. Real gases, however, have an intrinsic volume and attractive long-range interactions. The Van der Waals equation of state accounts for these factors:</p>
+<ul>
+  <li>The intrinsic volume of molecules is represented by the constant $$b$$. The available volume is reduced to $$\overline{V}-b$$.</li>
+  <li>Attractive interactions are represented by the term $$a/\overline{V}^{2}$$, which makes the fluid more compressible than an ideal gas.</li>
+</ul>
+<p>The Van der Waals equation is:</p>
+<p class="math-display">$$(P+\frac{a}{\overline{V}^{2}})(\overline{V}-b)=RT$$</p>
+<p>When V is large, this equation simplifies to the ideal gas law ($$PV=nRT$$). The equation also exhibits liquid-gas phase separation. At the critical temperature ($$T_{C}$$), the isotherm has an inflection point where:</p>
+<p class="math-display">$$(\frac{\partial P}{\partial V})_{T=T_{C}}=0$$</p>
+
+<h2 style="text-align: center; font-size: 1.3em; margin: 40px 0 30px 0; color: #fff;">Virial Equations and Boyles Temperature</h2>
+<p>Virial equations are expansions used to describe real gases in the low-pressure region. They are expressed as a power series in terms of $$1/\overline{V}$$ or $$P$$:</p>
+<p class="math-display">$$Z=\frac{P\overline{V}}{RT}=1+\frac{B}{\overline{V}}+\frac{C}{\overline{V}^{2}}+...$$</p>
+<p>or</p>
+<p class="math-display">$$Z=\frac{P\overline{V}}{RT}=1+B^{\prime}P+c^{\prime}P^{2}+...$$</p>
+<p>These equations are valid only at small pressures or large volumes. The coefficients ($$B$$, $$C$$, ...) are called virial coefficients. They represent interactions: $$B$$ for two-body interactions, $$C$$ for three-body interactions, and so on. These virial coefficients depend on temperature. The <strong>Boyle temperature</strong>, $$T_{B}$$, is the temperature at which the second virial coefficient, $$B$$, is zero, and the gas behaves almost ideally over a range of pressure.</p>
+
+ <div class="proof-box">
+                <div class="proof-header">Derivation: Boyle Temperature</div>
+                <div class="proof-content">
+                 <p>The Boyle temperature ($$T_B$$) is the temperature at which the second virial coefficient ($$B$$) is zero. We can derive an expression for $$T_B$$ from the Van der Waals equation.</p>
+  <p>Starting with the Van der Waals equation of state:</p>
+  <p class="math-display">$$(P+\frac{a}{\overline{V}^{2}})(\overline{V}-b)=RT$$</p>
+  <p>Rearrange to solve for the compressibility factor, $$Z = \frac{P\overline{V}}{RT}$$:</p>
+  <p class="math-display">$$P = \frac{RT}{\overline{V}-b} - \frac{a}{\overline{V}^2}$$</p>
+  <p class="math-display">$$Z = \frac{P\overline{V}}{RT} = \frac{\overline{V}}{\overline{V}-b} - \frac{a}{RT\overline{V}}$$</p>
+  <p>We can expand the first term using the Taylor expansion $$\frac{1}{1-x} = 1+x+x^2+...$$, where $$x = b/\overline{V}$$:</p>
+  <p class="math-display">$$\frac{\overline{V}}{\overline{V}-b} = \frac{1}{1-b/\overline{V}} = 1 + \frac{b}{\overline{V}} + \frac{b^2}{\overline{V}^2} + ...$$</p>
+  <p>Substitute this back into the expression for $$Z$$:</p>
+  <p class="math-display">$$Z = (1 + \frac{b}{\overline{V}} + ...) - \frac{a}{RT\overline{V}} = 1 + (b - \frac{a}{RT})\frac{1}{\overline{V}} + ...$$</p>
+  <p>By comparing this to the general Virial equation, $$Z = 1+\frac{B}{\overline{V}}+\frac{C}{\overline{V}^{2}}+...$$</p>
+  <p>The Boyle temperature is found by setting $$B=0$$</p>
+                </div>
+            </div>
+<p> Now it's time for our first examples</p>
+<div class="example-box">
+                <div class="example-header">Example: Boyle Temperature #1 </div>
+                <div class="example-content">
+                    Solve for the Boyle Temperature
+                 $$Z=1+[e^{-\frac{T}{T_c}-32}-1]P+144P^2$$
+                 <p>To solve this we must remember that B=0 when solving for the Boyle Temperature. This becomes:</p>
+                 <p>$0=[e^{-\frac{T}{T_c}-32}-1]P$</p>
+                 <p>Now we solve for T</p>
+                 <p>$0=[e^{-\frac{T}{T_c}-32}-1]$</p>
+                  <p>$1=e^{-\frac{T}{T_c}-32}$</p>
+                  <p>$ln(1)=ln(e^{-\frac{T}{T_c}-32})$</p>
+                  <p>$0=-\frac{T}{T_c}-32$</p>
+                  <p>$32=\frac{T}{T_c}$</p>
+                  <p>$32T_c=T$</p>
+                </div>
+            </div>
+
+<div class="example-box">
+                <div class="example-header">Example: Boyle Temperature #2 </div>
+                <div class="example-content">
+                    Solve for the Boyle Temperature
+                 $$P=\frac{nRT}{T}+[1+ln(\frac{T}{3T_c})P]$$
+                 <p>To solve this we must remember again that B=0 when solving for the Boyle Temperature. This becomes:</p>
+                 <p>$0=ln(\frac{T}{3T_c})P$</p>
+                 <p>$0=ln(\frac{T}{3T_c})$</p>
+                 <p>$e^0=e^{ln(\frac{T}{3T_c})}$</p>
+                 <p>$1=\frac{T}{3T_c}$</p>
+                 <p>$3T_c=T$</p>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- ADD MORE CONTENT HERE USING COMPONENTS FROM THE LIBRARY -->
+            
+            <!-- END CONTENT AREA -->
+        </div>
+    </div>
+
+    <script>
+        // Configure MathJax with dark theme
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$$', '$$']],
+                displayMath: [['$', '$']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            },
+            startup: {
+                ready: () => {
+                    MathJax.startup.defaultReady();
+                    // Force dark styling for MathJax
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        mjx-container, mjx-math, .MathJax, .MathJax_Display {
+                            color: #e8e8e8 !important;
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+        };
+    </script>
+    
+</body>
+</html>
